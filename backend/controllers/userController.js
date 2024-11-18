@@ -124,6 +124,7 @@ export const updateprofile=async(req,res)=>{
         user.profile.bio=bio,
         user.profile.skills=skillsArray
 
+<<<<<<< HEAD
         await user.save();
         user={
             _id:user._id,
@@ -143,3 +144,6 @@ export const updateprofile=async(req,res)=>{
         console.log(error);
     }
 }
+=======
+//bugubj
+>>>>>>> 924e2f1001d51c54f6c919516559306669b9cf04
