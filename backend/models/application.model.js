@@ -13,7 +13,7 @@ const applicationSchema=new mongoose.Schema({
     status:{
         type:String,
         enum:['pending','accepted','rejected'],
-        default:pending
+        default:'pending'
     }
 },{timeseries:true});
 export const Application=mongoose.model("Application",applicationSchema);
