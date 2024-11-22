@@ -1,59 +1,74 @@
-import React, { useState } from 'react';
-import { Button } from './ui/button';
-import { Search } from 'lucide-react';
-import { useDispatch } from 'react-redux';
-import { setSearchedQuery } from '@/redux/jobSlice';
-import { useNavigate } from 'react-router-dom';
+    import React, { useState } from 'react';
+    import { Button } from './ui/button';
+    import { Search } from 'lucide-react';
+    import { useDispatch } from 'react-redux';
+    import { setSearchedQuery } from '@/redux/jobSlice';
+    import { useNavigate } from 'react-router-dom';
 
-const HeroSection = () => {
-    const [query, setQuery] = useState("");
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const HeroSection = () => {
+        const [query, setQuery] = useState("");
+        const dispatch = useDispatch();
+        const navigate = useNavigate();
 
-    const searchJobHandler = () => {
-        dispatch(setSearchedQuery(query));
-        navigate("/browse");
-    };
+        const searchJobHandler = () => {
+            dispatch(setSearchedQuery(query));
+            navigate("/browse");
+        };
 
-    return (
-        <div
-            className="relative flex items-center justify-center bg-cover bg-center text-center"
-            style={{
-                height: '90vh',
-                backgroundImage: 'url("https://media.istockphoto.com/id/1389345285/vector/people-and-robots-waiting-in-line-for-job-interview-human-and-robotics-employees-for-vacancy.jpg?s=612x612&w=0&k=20&c=UbKzdWNPZ5lr670eR5K0BWLvmFiSIk0hljslMIXvT5c=")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }}
-        >
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-[#9e7c53] opacity-50"></div>
-
-            {/* Content */}
-            <div className="relative z-10 max-w-4xl px-4 flex flex-col gap-5 items-center">
-                <span className="px-4 py-2 text-lg font-medium text-[#F83002] bg-gray-100 rounded-full">
-                    Elevating Your Job Search
-                </span>
-                <h1 className="text-5xl font-bold text-white">
-                    Turning Aspirations into Achievements <br />
-                    <span className="text-[#6A38C2]">Job by Job!</span>
-                </h1>
-                <p className="text-white text-center">
-                    Unleashing your potential with every opportunity – because the career you dream of is just a step away!
-                </p>
-                <div className="flex w-[50%] border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto bg-white bg-opacity-90 shadow-lg">
-                    <input
-                        type="text"
-                        placeholder="Find your dream jobs"
-                        onChange={(e) => setQuery(e.target.value)}
-                        className="outline-none border-none w-full bg-transparent text-black placeholder-gray-500"
-                    />
-                    <Button onClick={searchJobHandler} className="rounded-r-full bg-[#6A38C2]">
-                        <Search className="h-5 w-5 text-white" />
-                    </Button>
+        return (
+            <div
+                className="relative flex bg-cover bg-no-repeat text-white"
+                style={{
+                    height: '70vh',
+                    backgroundColor: '#FBEBC8',
+                    backgroundImage: 'url("https://media.istockphoto.com/id/1304622701/vector/home-working-young-man-using-laptop-books-and-cat-on-desk.jpg?s=612x612&w=0&k=20&c=FaSsYW4dIBfKmg0jOnKSsVrdZbN0gdqH0uMCMzUaQGI=")',
+                    backgroundSize: '45% auto',
+                    backgroundPosition: 'right center',
+                }}
+            >
+                {/* Content Section */}
+                <div className="relative z-10 flex flex-col justify-center items-center w-[50%] h-full px-8">
+                    <div className="w-full text-center">
+                        <span className="px-4 py-2 text-lg font-medium text-[#FF6600] bg-white bg-opacity-90 rounded-full shadow-lg">
+                            Elevating Your Job Search
+                        </span>
+                        <h1
+                            className="mt-6 text-5xl font-light leading-tight text-center"
+                            style={{
+                                fontFamily: '"Cormorant Garamond", serif', // Applying specific font
+                                color: '#000B58', // Setting text color to black
+                                fontWeight: '1000', // Slightly thin font weight
+                                fontSize: '45px'
+                            }}
+                        >
+                            TURNING ASPIRATIONS INTO ACHIEVEMENTS <br />
+                            <span
+                                className="allison-regular"
+                                style={{
+                                    fontFamily: '"Satisfy", cursive',
+                                    fontWeight: '400',
+                                    fontStyle: 'normal',
+                                    color: '#FF6600', // Dark Purple color
+                                }}
+                            >
+                                Job by Job!
+                            </span>
+                        </h1>
+                    </div>
+                    <div className="flex w-[90%] mt-8 border border-gray-300 pl-3 rounded-full items-center gap-4 bg-white bg-opacity-90 shadow-lg">
+                        <input
+                            type="text"
+                            placeholder="Find your dream jobs"
+                            onChange={(e) => setQuery(e.target.value)}
+                            className="outline-none border-none w-full bg-transparent text-black placeholder-[#000B58]" // Dark Purple color for placeholder
+                        />
+                        <Button onClick={searchJobHandler} className="rounded-r-full bg-[#FF8C00]">
+                            <Search className="h-5 w-5 text-white" />
+                        </Button>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
-};
+        );
+    };
 
-export default HeroSection;
+    export default HeroSection;
