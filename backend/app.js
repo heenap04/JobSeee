@@ -46,9 +46,14 @@ import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
+<<<<<<< HEAD
 import userRoute from "./routes/user.route.js";
 import companyRouter from "./routes/company.route.js"; 
 import applicationRouter from "./routes/application.route.js";
+=======
+import userRouter from "./routes/userRoutes.js";
+import applicationRouter from "./routes/applicationRouter.js";
+>>>>>>> eafc3212a1e80969ec649cf10d09deccada05e93
 import jobRouter from "./routes/job.route.js";
 import { dbConnection } from "./database/dbConnection.js";
 import {errorMiddleware} from "./middlewares/error.js";
