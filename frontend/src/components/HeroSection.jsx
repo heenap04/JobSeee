@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+    import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Search } from 'lucide-react';
 import { useDispatch } from 'react-redux';
@@ -17,35 +17,49 @@ const HeroSection = () => {
 
     return (
         <div
-            className="relative flex items-center justify-center bg-cover bg-center text-center text-white"
+            className="relative flex bg-cover bg-no-repeat text-white"
             style={{
-                height: '90vh', // Full viewport height
-                backgroundImage: 'url("https://media.istockphoto.com/id/2150164967/vector/robot-and-people-comparsion-vector.jpg?s=612x612&w=0&k=20&c=Y2oohOaOwZ52aU46zT9vJYR3AvLMth5-x8p8fEfjrgw=")',
-                backgroundColor: '#DAC09B',
-                filter: 'brightness(75%)',
+                height: '70vh',
+                backgroundColor: '#FBEBC8',
+                backgroundImage: 'url("https://media.istockphoto.com/id/1304622701/vector/home-working-young-man-using-laptop-books-and-cat-on-desk.jpg?s=612x612&w=0&k=20&c=FaSsYW4dIBfKmg0jOnKSsVrdZbN0gdqH0uMCMzUaQGI=")',
+                backgroundSize: '45% auto',
+                backgroundPosition: 'right center',
             }}
         >
-            {/* Overlay for better contrast */}
-            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-
             {/* Content Section */}
-            <div className="relative z-10 max-w-4xl px-4 text-center">
-                <span className="px-4 py-2 text-lg font-medium text-[#F83002] bg-white bg-opacity-90 rounded-full shadow-lg">
-                    Elevating Your Job Search
-                </span>
-                <h1 className="mt-6 text-6xl font-extrabold leading-tight">
-                    Turning Aspirations into Achievements <br />
-                    <span className="text-[#FF8C00]">Job by Job!</span>
-                </h1>
-                <p className="mt-4 text-xl font-light">
-                    Unleashing your potential with every opportunity – because the career you dream of is just a step away!
-                </p>
-                <div className="flex w-[60%] mt-8 mx-auto border border-gray-300 pl-3 rounded-full items-center gap-4 bg-white bg-opacity-90 shadow-lg">
+            <div className="relative z-10 flex flex-col justify-center items-center w-[50%] h-full px-8">
+                <div className="w-full text-center">
+                    <span className="px-4 py-2 text-lg font-medium text-[#FF6600] bg-white bg-opacity-90 rounded-full shadow-lg">
+                        Elevating Your Job Search
+                    </span>
+                    <h1
+                        className="mt-6 text-5xl font-light leading-tight text-center"
+                        style={{
+                            fontFamily: '"Cormorant Garamond", serif',
+                            color: '#000B58',
+                            fontWeight: '1000',
+                            fontSize: '45px',
+                        }}
+                    >
+                        TURNING ASPIRATIONS INTO ACHIEVEMENTS <br />
+                        <span
+                            style={{
+                                fontFamily: '"Satisfy", cursive',
+                                fontWeight: '400',
+                                fontStyle: 'normal',
+                                color: '#FF6600',
+                            }}
+                        >
+                            Job by Job!
+                        </span>
+                    </h1>
+                </div>
+                <div className="flex w-[90%] mt-8 border border-gray-300 pl-3 rounded-full items-center gap-4 bg-white bg-opacity-90 shadow-lg">
                     <input
                         type="text"
                         placeholder="Find your dream jobs"
                         onChange={(e) => setQuery(e.target.value)}
-                        className="outline-none border-none w-full bg-transparent text-black placeholder-gray-500"
+                        className="outline-none border-none w-full bg-transparent text-black placeholder-[#000B58]"
                     />
                     <Button onClick={searchJobHandler} className="rounded-r-full bg-[#FF8C00]">
                         <Search className="h-5 w-5 text-white" />
@@ -57,5 +71,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-
