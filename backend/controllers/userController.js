@@ -68,10 +68,10 @@ export const login = async (req, res) => {
             });
         };
         
-        // Ensure that process.env.JWT_SECRET_KEY exists
-        if (!process.env.JWT_SECRET_KEY) {
+        // Ensure that process.env.SECRET_KEY exists
+        if (!process.env.SECRET_KEY) {
             return res.status(500).json({
-                message: 'JWT_SECRET_KEY is not defined in the environment variables.',
+                message: 'ECRET_KEY is not defined in the environment variables.',
                 success: false
             });
         }
@@ -80,7 +80,7 @@ export const login = async (req, res) => {
             userId: user._id
         };
 
-        const token = jwt.sign(tokenData, process.env.JWT_SECRET_KEY, { expiresIn: '1d' });
+        const token = jwt.sign(tokenData, process.env.SECRET_KEY, { expiresIn: '1d' });
 
         user = {
             _id: user._id,
