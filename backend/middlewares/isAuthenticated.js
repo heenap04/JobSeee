@@ -55,6 +55,6 @@ const isAuthenticated = async (req, res, next) => {
       success: false,
     });
   }
-};
+
 
 export default isAuthenticated;
