@@ -1,3 +1,6 @@
+import dotenv from 'dotenv'; // Add this line to import dotenv
+dotenv.config({ path: './config/config.env' }); 
+
 import { User } from "../models/user.model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
@@ -68,10 +71,10 @@ export const login = async (req, res) => {
             });
         };
         
-        // Ensure that process.env.SECRET_KEY exists
+        // Ensure that process.env.JWT_SECRET_KEY exists
         if (!process.env.SECRET_KEY) {
             return res.status(500).json({
-                message: 'ECRET_KEY is not defined in the environment variables.',
+                message: 'SECRET_KEY is not defined in the environment variables.',
                 success: false
             });
         }
@@ -160,4 +163,4 @@ export const updateprofile = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
-}
+};
