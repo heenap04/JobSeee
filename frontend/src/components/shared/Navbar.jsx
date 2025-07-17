@@ -64,7 +64,7 @@ const Navbar = () => {
                                 <PopoverTrigger asChild>
                                     <Avatar className="cursor-pointer">
                                         <AvatarImage src={user?.profile?.profilePhoto} alt="@shadcn" />
-                                    </Avatar>
+                                    </Avatar>6-+
                                 </PopoverTrigger>
                                 <PopoverContent className="w-80">
                                     <div className=''>
