@@ -21,5 +21,5 @@ JobSeee is a full-featured job portal web application designed to connect job se
 - **Others**: Cloudinary for resume uploads, Nodemailer for emails
 
 
-##Contributing
+## Contributing
 Feel free to open issues or submit pull requests if you’d like to contribute!
