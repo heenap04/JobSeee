@@ -18,11 +18,15 @@ const Home = () => {
     }
   }, []);
   return (
-    <div >
+    <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      <HeroSection />
-      <CategoryCarousel />
-      <LatestJobs />
+      <main className="relative">
+        <HeroSection />
+        <div className="bg-gradient-to-b from-background to-muted/20">
+          <CategoryCarousel />
+          <LatestJobs />
+        </div>
+      </main>
       <Footer />
     </div>
   )

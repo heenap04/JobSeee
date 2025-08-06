@@ -14,7 +14,8 @@ import AdminJobs from "./components/admin/AdminJobs";
 import PostJob from './components/admin/PostJob'
 import Applicants from './components/admin/Applicants'
 import ProtectedRoute from './components/admin/ProtectedRoute'
-// import ResumeParser from "./components/ResumeParser";
+import StudentDashboard from './components/student/StudentDashboard'
+import RecruiterDashboard from './components/recruiter/RecruiterDashboard'
 
 const appRouter = createBrowserRouter([
   {
@@ -43,43 +44,52 @@ const appRouter = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: <Profile />
-  },
-
-  
-  // admin ke liye yha se start hoga
-  {
-    path:"/admin/companies",
-    element: <ProtectedRoute><Companies/></ProtectedRoute>
+    element: <ProtectedRoute allowedRoles={['student', 'recruiter']}><Profile /></ProtectedRoute>
   },
   {
-    path:"/admin/companies/create",
-    element: <ProtectedRoute><CompanyCreate/></ProtectedRoute> 
+    path: "/student/dashboard",
+    element: <ProtectedRoute allowedRoles={['student']}><StudentDashboard /></ProtectedRoute>
   },
   {
-    path:"/admin/companies/:id",
-    element:<ProtectedRoute><CompanySetup/></ProtectedRoute> 
+    path: "/recruiter/dashboard",
+    element: <ProtectedRoute allowedRoles={['recruiter']}><RecruiterDashboard /></ProtectedRoute>
+  },
+  // Recruiter/Admin routes
+  {
+    path: "/admin/companies",
+    element: <ProtectedRoute allowedRoles={['recruiter']}><Companies/></ProtectedRoute>
   },
   {
-    path:"/admin/jobs",
-    element:<ProtectedRoute><AdminJobs/></ProtectedRoute> 
+    path: "/admin/companies/create",
+    element: <ProtectedRoute allowedRoles={['recruiter']}><CompanyCreate/></ProtectedRoute> 
   },
   {
-    path:"/admin/jobs/create",
-    element:<ProtectedRoute><PostJob/></ProtectedRoute> 
+    path: "/admin/companies/:id",
+    element: <ProtectedRoute allowedRoles={['recruiter']}><CompanySetup/></ProtectedRoute> 
   },
   {
-    path:"/admin/jobs/:id/applicants",
-    element:<ProtectedRoute><Applicants/></ProtectedRoute> 
+    path: "/admin/jobs",
+    element: <ProtectedRoute allowedRoles={['recruiter']}><AdminJobs/></ProtectedRoute> 
   },
-
+  {
+    path: "/admin/jobs/create",
+    element: <ProtectedRoute allowedRoles={['recruiter']}><PostJob/></ProtectedRoute> 
+  },
+  {
+    path: "/admin/jobs/:id/applicants",
+    element: <ProtectedRoute allowedRoles={['recruiter']}><Applicants/></ProtectedRoute> 
+  },
+  // Add a catch-all route for 404
+  {
+    path: "*",
+    element: <div>404 - Page Not Found</div>
+  }
 ])
-function App() {
 
+function App() {
   return (
-    <div>
+    <div className="min-h-screen bg-gray-50">
       <RouterProvider router={appRouter} />
-      {/* <ResumeParser /> */}
     </div>
   )
 }
